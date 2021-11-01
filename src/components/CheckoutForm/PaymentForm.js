@@ -4,8 +4,9 @@ import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js
 import { loadStripe } from '@stripe/stripe-js';
 
 import Review from './Review';
+const key='pk_test_51JnHPASECroDUTzQkjFm1U4owwCuCDT2slso9zzaFqUBvUF2H1dAsY3bWpOxI5QMZnuFvnDjYNNojj5krQdNHrYH00UZzGvsHj';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(key);
 
 const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout }) => {
   const handleSubmit = async (event, elements, stripe) => {
@@ -33,7 +34,7 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, onCaptur
         },
       };
 
-      onCaptureCheckout(checkoutToken.id, orderData);
+      //onCaptureCheckout(checkoutToken.id, orderData);
 
       nextStep();
     }
